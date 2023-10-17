@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="/css/signup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 회원가입 폼</title>
+</head>
+
+<form th:object="${owner}" method="post">
+    <body>
+    <input type="hidden" th:field="*{id}">
+
+
+
+    <div class="member">
+        <!-- 1. 로고 -->
+        <img class="logo"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Naver_Logotype.svg/782px-Naver_Logotype.svg.png"
+             style="width: 30%">
+
+        <!-- 2. 필드 -->
+        <div class="field">
+            <b>아이디</b>
+            <div class="text">
+                <span><input type="text" th:field="*{name}"></span>
+            </div>
+
+        </div>
+
+
+
+        <div class="field">
+        </div>
+        <b style="">비밀번호</b>
+        <input type="password" th:field="*{pwd}">
+
+        <div class="text">
+            <div class="field">
+                <b>닉네임</b>
+                <input type="text" th:field="*{email}">
+            </div>
+        </div>
+
+
+
+        <div class="field">
+            <b>폰넘버</b>
+            <div class="text">
+                <input type="text" th:field="*{phone}">
+            </div>
+        </div>
+
+
+
+
+        <!-- 6. 가입하기 버튼 -->
+        <input type="submit" value="수정">
+
+        <!-- 7. 푸터 -->
+        <div class="member-footer">
+            <div>
+                <a href="/auth/signin">로그인</a>
+                <a href="/">홈</a>
+                <a href="#none">책임의 한계와 법적고지</a>
+                <a href="#none">회원정보 고객센터</a>
+            </div>
+            <span><a href="#none">NAVER Corp.</a></span>
+        </div>
+    </div>
+
+
+
+    </body>
+</form>
+
+
+<script>
+    const id = document.querySelector("[name=id]").value;
+
+    const data = await fetch(`/auth/id-check?id=${id}`);
+    const res = await data.text();
+    console.log(res);
+</script>
+</html>
+
+
+
+

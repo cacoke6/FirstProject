@@ -1,0 +1,11 @@
+<div th:replace="common/header"></div>
+<div th:replace="common/head"></div>
+
+<form th:object="${board}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{title}">
+    <br>
+    <textarea th:field="*{content}"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>

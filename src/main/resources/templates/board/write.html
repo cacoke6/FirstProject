@@ -1,0 +1,15 @@
+<div th:replace="common/header"></div>
+<div th:replace="common/head"></div>
+
+<a href="/">홈</a>
+<form action="/board/wirte" method="post">
+
+    <input type="text" name="title">
+    <br>
+    <textarea name="content" cols="30" rows="10"></textarea>
+    <br>
+    <div th:replace="common/upload"></div>
+
+
+</form>
+

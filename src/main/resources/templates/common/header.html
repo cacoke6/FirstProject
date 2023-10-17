@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:if="${session.email == null}">
+    <a href="/auth/signin">로그인</a>
+</th:block>
+
+<th:block th:if="${session.email != null}">
+    [[ ${session.email} ]] 님 반갑습니다.
+    <button onclick="window.location = '/auth/signout'">
+        로그아웃
+    </button>
+    <button onclick="window.location = '/auth/signupdate'">
+        내정보수정
+    </button>
+    <a href="/">홈으로</a>
+    <a href="/board/write">글쓰기</a>
+</th:block>
+<hr>
+</body>
+</html>
